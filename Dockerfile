@@ -10,5 +10,4 @@ ARG version
 ENV APP_VERSION=$version
 WORKDIR /app
 COPY --from=build-env /go/bin/domain-expiration-checker .
-COPY --from=build-env /app/dist ./dist
 ENTRYPOINT ["./domain-expiration-checker"]
