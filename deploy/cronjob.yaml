@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: domain-expiration-checker
+spec:
+  schedule: "1 1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: domain-expiration-checker
+            image: jatm80/domain-expiration-checker:1
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: DD_SITE
+              value: "your-site-url"
+            - name: DD_API_KEY
+              value: "your-api-key"
+            - name: DATADOG
+              value: "true"
+            - name: DOMAINS
+              value: "example1.com,example2.com,example2.com"
+          restartPolicy: OnFailure
