@@ -10,8 +10,9 @@ To configure the application, the following environment variables need to be set
 
 - **`DD_SITE`**: The Datadog site URL. Example: `"datadoghq.com"`
 - **`DD_API_KEY`**: Your Datadog API key for authentication and data submission.
-- **`DATADOG`**: Set to `"true"` to enable Datadog integration.
+- **`DATADOG_ENABLED`**: Set to `"true"` to enable Datadog integration. Default: false
 - **`DOMAINS`**: A comma-separated list of domain names to monitor. Example: `"example1.com,example2.com,example3.com"`
+- **`ALERT_THRESHOLD_DAYS`**: A comma-separated list of days to alert before domain expires. Default: "30,60,90"
 
 ## Usage
 
